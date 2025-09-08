@@ -1,0 +1,6 @@
+@delivery_rental_system_HostAddress = http://localhost:5043
+
+GET {{delivery_rental_system_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
