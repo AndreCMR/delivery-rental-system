@@ -66,7 +66,7 @@ Principais funcionalidades:
 
 3. Suba os serviços com Docker Compose:
    ```bash
-   docker-compose --env-file .env up --build
+   docker compose up -d --build
    ```
 
 4. Acesse a API via Swagger:
