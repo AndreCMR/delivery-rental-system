@@ -9,7 +9,6 @@ Sistema para gerenciamento de aluguel de motos e entregadores, seguindo Clean Ar
 - [Testes](#testes)  
 - [APIs e Casos de Uso](#apis-e-casos-de-uso)  
 - [Ambiente Docker](#ambiente-docker)  
-- [Contato](#contato)  
 
 ---
 
