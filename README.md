@@ -70,7 +70,7 @@ Principais funcionalidades:
    ```
 
 4. Acesse a API via Swagger:
-   - [http://localhost:5000/swagger](http://localhost:7267/swagger)  
+   - [http://localhost:7267/swagger](http://localhost:7267/swagger)  
 
 ---
 
