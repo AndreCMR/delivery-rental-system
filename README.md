@@ -58,7 +58,7 @@ Principais funcionalidades:
 ### Passos
 1. Clone o repositório:
    ```bash
-   git clone [<url-do-repo>](https://github.com/AndreCMR/delivery-rental-system.git)
+   git clone https://github.com/AndreCMR/delivery-rental-system.git
    cd delivery-rental-system
    ```
 
