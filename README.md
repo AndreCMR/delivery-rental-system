@@ -58,11 +58,11 @@ Principais funcionalidades:
 ### Passos
 1. Clone o repositório:
    ```bash
-   git clone <url-do-repo>
+   git clone [<url-do-repo>](https://github.com/AndreCMR/delivery-rental-system.git)
    cd delivery-rental-system
    ```
 
-2. Configure as variáveis de ambiente no `.env` (exemplo em `appsettings.Development.json`).
+2. Configure as variáveis de ambiente no `.appsettings.Development.json`.
 
 3. Suba os serviços com Docker Compose:
    ```bash
