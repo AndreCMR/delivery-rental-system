@@ -1,4 +1,4 @@
-﻿
+
 using delivery_rental_system.Application.Abstractions;
 using delivery_rental_system.Application.Handlers.Motorcycles;
 using delivery_rental_system.Application.Handlers.Validators;
@@ -101,6 +101,12 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("v1/swagger.json", "API 1.0");
     });
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
 }
 
 app.MapControllers();
