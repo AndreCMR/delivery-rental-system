@@ -1,0 +1,66 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api_rental
+    depends_on:
+      - postgres
+      - rabbitmq
+      - minio
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+
+      ConnectionStrings__Postgres: Host=postgres;Port=5432;Database=rental;Username=rental;Password=rental
+
+      Rabbit__Host: rabbitmq
+      Rabbit__Port: 5672
+      Rabbit__User: app
+      Rabbit__Pass: app
+
+      Minio__Endpoint: http://minio:9000
+      Minio__Bucket: uploads
+      Minio__AccessKey: admin
+      Minio__SecretKey: adminadmin
+      Minio__UsePresignedUrls: "true"
+      Minio__PresignedExpirySeconds: "900"
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: rental
+      POSTGRES_PASSWORD: rental
+      POSTGRES_DB: rental
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672" 
+    environment:
+      RABBITMQ_DEFAULT_USER: app
+      RABBITMQ_DEFAULT_PASS: app
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001" 
+    environment:
+      MINIO_ACCESS_KEY: admin
+      MINIO_SECRET_KEY: adminadmin
+    volumes:
+      - minio_data:/data
+
+volumes:
+  pgdata:
+  minio_data:
